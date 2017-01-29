@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Aplicando lo aprenido en vuejs2.0</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        li{
+            list-style-type: square;
+        }
+        h1{
+            color:purple;
+            background-color:darkslateblue;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form v-on:submit.prevent="addNewTarea">
+            <input type="text" name="" value="" v-model="newTarea">
+            <button type="bubmit">Agregar nueva tarea</button>
+        </form>
+        <h1>Tareas</h1>
+        <ul>
+            <li v-for="item in tareas">
+                {{item}}
+            </li>
+        </ul>
+    </main>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src='main.js'></script>
+</body>
+
+</html>
