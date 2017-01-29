@@ -1,13 +1,17 @@
 vm = new Vue(
-    el:'main'
+    el: 'main'
     data:
-        newTarea: null
-        tareas:[
-
+        newWork: null
+        items:[
+            
         ]
     methods:
-            addNewTarea : ->
-                    @tareas.unshift(@newTarea)
-                    @newTarea = null
+            addNewWork: ->
+                    if @newWork?
+                        @items.push(@newWork)
+                        @newWork = null
+                    else
+                        alert "No ahi nada que agregar"
+                        return off
+
 )
-console.log @vm

@@ -5,17 +5,20 @@
   vm = new Vue({
     el: 'main',
     data: {
-      newTarea: null,
-      tareas: []
+      newWork: null,
+      items: []
     },
     methods: {
-      addNewTarea: function() {
-        this.tareas.unshift(this.newTarea);
-        return this.newTarea = null;
+      addNewWork: function() {
+        if (this.newWork != null) {
+          this.items.push(this.newWork);
+          return this.newWork = null;
+        } else {
+          alert("No ahi nada que agregar");
+          return false;
+        }
       }
     }
   });
-
-  console.log(this.vm);
 
 }).call(this);

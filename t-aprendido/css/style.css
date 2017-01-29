@@ -1,0 +1,11 @@
+h1{
+    color: darkcyan;
+}
+button  {
+    background-color: darkcyan;
+    border-radius: 5px;
+    color: white;
+}
+main{
+    margin: 40px;
+}
