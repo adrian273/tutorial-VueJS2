@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <title>data binding</title>
+    <style media="screen">
+        li {
+            cursor: pointer;
+        }
+
+        .completado {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <pre>
+            {{$data}}
+        </pre>
+        <h2>{{tareasCompletadas.length}} completada</h2>
+        <ul>
+            <!-- se puede escribir haci tambien{   :class     } -->
+            <li v-bind:class="{completado: items.realizado}" @click="completarTarea(items)" v-for="items in tareas">{{items.titulo}}</li>
+        </ul>
+    </main>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
