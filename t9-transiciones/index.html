@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Transiciones: </title>
+    <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        /**
+        trancition
+        **/
+
+        .aparecer-enter {
+            opacity: 0;
+        }
+
+        .aparecer-enter-active {
+            transition: opacity 1s;
+        }
+
+        .aparecer-leave-to {
+            opacity: 0;
+        }
+
+        .aparecer-leave-active {
+            transition: opacity 1s;
+        }
+        /*
+        animation
+    */
+
+        .bote-enter-active {
+            animation: bounce-in .5s;
+        }
+
+        .bote-leave-active {
+            animation: bounce-out .5s;
+        }
+
+        .bounce-enter-active {
+            animation: bounce-in .5s;
+        }
+
+        .bounce-leave-active {
+            animation: bounce-out .5s;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce-out {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <button type="button" name="button" @click=" mostrar = !mostrar ">Mostrar / Ocultar</button>
+        <!-- transciones -->
+        <transition name="aparecer">
+            <h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
+        </transition>
+        <transition name="bote" appear>
+            <h1 v-if="mostrar" v-text="mensajes.animacion"></h1>
+        </transition>
+        <!-- animated .css -->
+        <transition name="custom" enter-active-class="animated rotateInUpLeft" leave-active-class="animated zoomOut">
+            <h1 v-if="mostrar" v-text="mensajes.animacionCustom"></h1>
+        </transition>
+        <!-- trancion entre diferentes elementos -->
+        <transition name="aparecer" mode="out-in">
+            <h1 v-if="mostrar" v-text="mensajes.entreElementos" key="aparecer"></h1>
+            <h1 v-else key="ocultar">no ahi mensajes</h1>
+        </transition>
+        <pre>
+          {{$data}}
+        </pre>
+    </main>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
