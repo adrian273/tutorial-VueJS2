@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <h1>{{verMensajeAlreves}}</h1>
+        <h2> {{mensaje}} </h2>
+        <ul>
+            <li v-for="item in tareasPoAntiguedad">
+                {{item.nombre}}
+            </li>
+        </ul>
+        <pre>
+           {{$data}}
+        </pre>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>

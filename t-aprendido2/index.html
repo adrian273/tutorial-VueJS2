@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- Bootstrap CSS 3.3.7 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" style="padding-top: 10px;">
+        <main>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li v-for="item in rankingRange"> {{item.nombre}} </li>
+                    </ul>
+                    <input type="range" name="" value="" v-model="rank">
+                    <button type="button" v-on:click="capitalizeBtn">Cambiar a mayuscualas</button>
+                </div>
+                <div class="col-md-6">
+                    <pre>{{$data}}</pre>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

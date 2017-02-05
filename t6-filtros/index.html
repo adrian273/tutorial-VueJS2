@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- Bootstrap CSS 3.3.7 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" style="padding-top: 10px;">
+        <main>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Genero</th>
+                                <th>puntuacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="juego in buscarJuego">
+                                <td> {{juego.titulo}} </td>
+                                <td> {{juego.genero}} </td>
+                                <td> {{juego.puntuacion}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="range" name="" min="0" max="10" v-model="minimo" class="form-control">
+                    <label for="">Busqueda</label>
+                    <input type="search" v-model="busqueda" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <pre>
+                   {{$data}}
+                </pre>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
