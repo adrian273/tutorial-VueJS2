@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+        .dataIMG li {
+            display: inline;
+        }
+
+        .panel-footer label {
+            color: white;
+        }
+
+        main {
+            padding-top: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid">
+            <h3>Informaciones de usuarios RANDOM</h3>
+            <div class="row" id='content'>
+                <div class="col-md-8">
+                    <ul class="dataIMG">
+                        <li v-for="u in users">
+                            <a href="#" @click="generatorName(u)"><img :src="u.picture.medium" alt="" class="img-circle" /></a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="panel" v-bind:class='classColor' v-if="show_data">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Datos:</h3>
+
+                        </div>
+                        <div class="panel-body">
+                            <img :src="dataIMG.large" alt="" class="img-thumbnail" />
+                            <ul>
+                                <li>Nombre : {{dataUSER.first}}</li>
+                                <li>Apellido : {{dataUSER.last}}</li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <span style="color:black;">
+                              GENERO :
+                          </span>
+                            <label for="" class="label-info" v-if='dataGENDER === "male"'>Masculino</label>
+                            <label for="" class="label-success" v-else>Femenino</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src=" https://unpkg.com/vue/dist/vue.js "></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
