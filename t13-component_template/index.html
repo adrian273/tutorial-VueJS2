@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>component templates </title>
+</head>
+
+<body>
+
+    <main>
+        <winner :listado="personas"></winner>
+        <pre>{{$data}}</pre>
+    </main>
+    <!-- otra forma de mostrar el template con el tag script
+    <script type="text/template" id="winner-random">
+        <div>
+            <h1 v-if="ganador">El gandor es :{{ganador}}</h1>
+            <template v-else>
+              <h1>Participantes</h1>
+              <ul>
+                <li v-for="p in listado">{{p}}</li>
+              </ul>
+            </template>
+            <button @click="elegirGanador()">elegir ganador</button>
+        </div>
+    </script>
+  -->
+    <!-- con tag de TEMPLATE -->
+    <template id="winner-random">
+      <div>
+          <h1 v-if="ganador">El gandor es :{{ganador}}</h1>
+          <template v-else>
+            <h1>Participantes</h1>
+            <ul>
+              <li v-for="p in listado">{{p}}</li>
+            </ul>
+          </template>
+    <button @click="elegirGanador()">elegir ganador</button>
+    </div>
+    </template>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
