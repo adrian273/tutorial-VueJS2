@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>validaciones de propiedades </title>
+</head>
+
+<body>
+    <main>
+        <candidato v-for="c in candidatos" :nombre="c.name.first" :correo="c.email" :imagen="c.picture.thumbnail" :location="c.location"></candidato>
+        <pre>
+          {{$data}}
+        </pre>
+    </main>
+    <template id="candidato-template">
+      <blockquote>
+        <img :src="imagen" alt="" />
+        <h1>{{nombre}}</h1>
+        <h2>{{correo}}</h2>
+        <ul>
+          <!-- iterar un object -->
+          <li v-for="(value, key, index) in location">{{value}}</li>
+        </ul>
+        <hr>
+      </blockquote>
+    </template>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
