@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slot & named Slot </title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+</head>
+
+<body>
+    <main>
+        <mis-tareas :listado="tareas">
+            <template id="" scope="data">
+              <li>{{data.title}}</li>
+          </template>
+        </mis-tareas>
+        <pre>
+          {{$data}}
+        </pre>
+    </main>
+    <template id="mis-tareas-template">
+        <ul>
+            <slot v-for="tarea in listado" :title="tarea.title"></slot>
+            <!-- <li v-for="tarea in listado">{{tarea.title}}</li> -->
+        </ul>
+    </template>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
