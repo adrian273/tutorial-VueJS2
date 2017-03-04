@@ -1,0 +1,29 @@
+<!-- paracticando los SCOPE y Slot en VUE v2 -->
+<!DOCTYPE html>
+<html lang="es-Es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aplicando lo aprendido</title>
+</head>
+
+<body>
+    <main>
+        <h1>Informaciones de juego</h1>
+        <my-component :data="dataGame">
+            <template id="" scope="da">
+                <li>{{da.title}}</li>
+              <li><img :src="da.cover" alt="" /></li>
+            </template>
+        </my-component>
+    </main>
+    <template id="my-component-template">
+      <ul>
+        <slot v-for="d in data" :title="d.title" :cover="d.cover"></slot>
+      </ul>
+    </template>
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
