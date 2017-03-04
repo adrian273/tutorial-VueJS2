@@ -1,0 +1,71 @@
+/*
+  bloque
+ */
+.alerta{
+    width:300px;
+    border-radius: 15px;
+    background-color: lightgray;
+    border: 1px solid white;
+    box-shadow: 1px 1px 2px gray;
+    font-family: sans-serif;
+    position: absolute;
+}
+
+/*
+  elementos
+ */
+.alerta_header{
+    border-bottom: 1px solid white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.alerta_contenido{
+    font-size: 14px;
+    padding: 20px;
+}
+
+.alerta_footer{
+    border-top: 1px solid white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.alerta--error{
+    background-color: red;
+}
+
+.alerta--advertencia{
+    background-color: yellow;
+}
+
+.alerta--exito{
+    background-color: lightgreen;
+}
+
+.alerta--arriba-izquierda{
+    left: 0px;
+    top:0;
+}
+
+.alerta--abajo-izquierda{
+    left: 0;
+    bottom: 0px;
+}
+
+.alerta--arriba-derecha{
+    right: 0;
+    top:0;
+}
+
+.alerta--abajo-derecha{
+    right: 0;
+    bottom: 0;
+}
+
+.alerta--center{
+    right: 50;
+    top: 0;
+}

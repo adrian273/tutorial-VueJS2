@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slot & named Slot </title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+</head>
+
+<body>
+    <main>
+        <button @click="mostrarExito = true">Exito</button>
+        <button @click="mostrarAdvertencia = true">Advertencia</button>
+        <button @click="mostrarError = true">Error</button>
+        <alerta @ocultar="mostrarExito = false" v-show="mostrarExito" tipo="alerta--exito" posicion="alerta--abajo-izquierda">
+            <!-- porsiacaso no quiera que aparescan algunas etiquetas, agrego <template> para que no lo renderize -->
+            <template slot="header">
+                ADRIAN VERDUGO
+            </template>
+            <!-- slot anonimo -->
+            <template>
+                Esto es ejempplo de un slot anonimo
+            </template>
+            <template id="" slot="footer">
+                  esto es el footer
+            </template>
+        </alerta>
+        <alerta @ocultar="mostrarAdvertencia = false" v-show="mostrarAdvertencia" tipo="alerta--advertencia" posicion="alerta--abajo-derecha">
+            <!-- porsiacaso no quiera que aparescan algunas etiquetas, agrego <template> para que no lo renderize -->
+            <template slot="header">
+                ADRIAN VERDUGO
+            </template>
+            <!-- slot anonimo -->
+            <template>
+                Esto es ejempplo de un slot anonimo
+            </template>
+            <template id="" slot="footer">
+                  esto es el footer
+            </template>
+        </alerta>
+        <alerta @ocultar="mostrarError = false" v-show="mostrarError" tipo="alerta--error" posicion="alerta--arriba-derecha">
+            <template slot="header">
+                ERROR
+            </template>
+            <template>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </template>
+            <template slot="footer">
+              FOoter
+            </template>
+        </alerta>
+        <pre>
+          {{$data}}
+        </pre>
+    </main>
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
