@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title v-text="title_index"> </title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+</head>
+
+<body>
+    <main>
+        <listado-productos :producto="productos"></listado-productos>
+        <carrito-compra></carrito-compra>
+        <hr>
+        <pre>
+            {{$data}}
+        </pre>
+    </main>
+    <!-- template de producto -->
+    <template id="productos-template">
+          <section>
+              <ul>
+                <li v-for="pro in producto">{{pro.nombre}}
+                    <small>{{pro.precio.toFixed(2)}} $</small>
+                    <button type="button" name="button" @click="eliminarProducto(pro.precio)">-</button>
+                    <button type="button" name="button" @click="anadirProducto(pro.precio)">+</button>
+                </li>
+              </ul>
+          </section>
+    </template>
+    <!-- template d ecarrityo de compra -->
+    <template id="carrito-compra-template">
+        <section>
+            <h1>{{total.toFixed(2)}} $</h1>
+            <h2>{{cantidadProductos}} productos</h2>
+        </section>
+    </template>
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
