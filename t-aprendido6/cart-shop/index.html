@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrito de compras</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style media="screen">
+        .navbar-primary {
+            background-color: #337ab7;
+        }
+
+        body {
+            background-image: url(http://res.cloudinary.com/db79cecgq/image/upload/c_crop,h_805,w_1426,x_0,y_47/c_fill/v1409345741/Playas_Aventura_Viajes_01.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-primary" role="navigation">
+            <h1 style="color:white;padding-left:5px;">Carrito de compras <sup class="text-danger">vueJS2</sup></h1>
+        </nav>
+        <main>
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <!-- libros a mostrar -->
+                    <book :book_data="books"></book>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <cart-shop></cart-shop>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- template de libros disponibles -->
+    <template id="book-template">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Libros Disponibles <i class="fa fa-book"></i></h3>
+          </div>
+          <div class="panel-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Titulo</th>
+                        <th>Genero</th>
+                        <th>Precio</th>
+                        <th>Cantidad Agregada</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="book in book_data">
+                        <td>{{book.title}}</td>
+                        <td>{{book.gender}}</td>
+                        <td>{{book.price}}</td>
+                        <td>{{book.quantify_book}}</td>
+                        <td><button type="button" class="btn btn-primary" name="addNewItem" @click="addNewItem(book.price, book.quantify_book++)"><i class="fa fa-plus"></i></button></td>
+                        <td v-if="book.quantify_book > 0"><button type="button" class="btn btn-danger" name="deleteItem" @click="deleteItem(book.price, book.quantify_book--)"><i class="fa fa-minus"></i></button></td>
+                      </tr>
+                    </tbody>
+                </table>
+          </div>
+          <div class="panel-footer">
+
+          </div>
+        </div>
+    </template>
+
+    <!-- template carrito de compras -->
+    <template id="cart-shop-template">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Carrito de compras <i class="fa fa-shopping-cart"></i></h3>
+          </div>
+          <div class="panel-body">
+              <span>Cantidad : <b>{{quantify}}</b></span><br>
+              <span>Total : <i class="fa fa-dollar">{{total}}</i></span>
+          </div>
+          <div class="panel-footer">
+
+          </div>
+        </div>
+    </template>
+
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
