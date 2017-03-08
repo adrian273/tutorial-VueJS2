@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Componentes Dinamicos</title>
+    <style media="screen">
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <button @click="selecccionado = 'lista-tareas'">tareas</button>
+        <button @click="selecccionado = 'contacto'">contacto</button>
+        <button @click="selecccionado = 'bio'">biografia</button>
+        <component :is="selecccionado"></component>
+        <!--
+        <lista-tareas>Tareas que necesito terminar</lista-tareas>
+        <contacto color="red"></contacto>
+        <bio color="green"></bio>
+      -->
+    </main>
+
+    <template id="tareas-template">
+        <div class="">
+            <h1 style="padding-rigth:10px;"><slot></slot></h1>
+            <ul>
+                <tarea v-for="tarea in tareas" :tarea="tarea"></tarea>
+            </ul>
+        </div>
+    </template>
+
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
