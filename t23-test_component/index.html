@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TEST OF COMPONENTS end__</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title">
+</head>
+
+<body>
+    <main class="container-fluid">
+        <users>
+            <h1>Usuarios de mi start up</h1>
+        </users>
+    </main>
+    <!-- template de usuarioS-->
+    <template id="users-template">
+        <div class="">
+            <section class="">
+                <slot></slot>
+                <input type="text" class="form-control" placeholder="buscar usuarios" v-model="search_user">
+            </section>
+
+            <section>
+              <div class="row">
+                <user v-for="u in filtrarUsers" :data="u"></user>
+              </div>
+            </section>
+        </div>
+    </template>
+    <!-- template de un usuario -->
+    <template id="user-template">
+        <div class="col-md-3">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{data.name}}</h3>
+            </div>
+            <div class="panel-body">
+                <img :src="data.image" :alt="data.name" />
+            </div>
+            <div class="panel-footer">
+                <small>{{data.email}}</small>
+            </div>
+          </div>
+        </div>
+    </template>
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="node_modules/axios/dist/axios.js" charset="utf-8"></script>
+    <script src="static/js/main.js" charset="utf-8"></script>
+</body>
+
+</html>
