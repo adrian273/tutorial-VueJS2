@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom input component >> Aprendido numero 7</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title">
+</head>
+
+<body>
+    <main>
+        <password v-model="password_data"></password>
+        <pre>
+          {{$data}}
+        </pre>
+    </main>
+    <template id="password-template">
+        <div class="">
+          <label for="input_pass">Contraseña :</label>
+          <input :value="pass" name="input_pass" @input="validarPass($event.target.value)" ref="pass_ref">
+          <div v-if="msj_error" class="alert alert-danger">contraseña incorrecta: las siguientes palabras no son validas : <ul>
+            <li v-for="nv in noValido">{{nv}}</li>
+          </ul></div>
+        </div>
+    </template>
+    <script src="node_modules/vue/dist/vue.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
