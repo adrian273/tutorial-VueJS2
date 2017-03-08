@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>filtrado de usuarios t-aprendiendo 8</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <main>
+        <users></users>
+    </main>
+
+    <template id="users-template">
+        <div class="">
+            <div class="col-md-8">
+                <label for="">Busqueda de usuario <i class="glyphicon glyphicon-search"></i></label>
+                <input type="text" name="name" value="" class="form-control" placeholder="ingrese nombre" v-model="search_user">
+            </div>
+            <div class="col-md-12" style="padding-top : 5px;">
+                <div class="row">
+                    <user v-for="u in filterUser" :data="u"></user>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="user-template">
+      <div class="col-md-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{data.name}}</h3>
+          </div>
+          <div class="panel-body">
+              <img :src="data.image" alt="" />
+          </div>
+          <div class="panel-footer">
+              <small>{{data.email}}</small>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
