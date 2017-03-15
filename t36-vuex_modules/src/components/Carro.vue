@@ -1,6 +1,6 @@
 <template lang="pug">
     section
-          h2 Carro de Comprar
+          h2 Carro de Compras
           h3 Total de la compra: $ {{totalCompra}}
           ul
               li(v-for='(productos, indice) in carro') {{productos.nombre}}

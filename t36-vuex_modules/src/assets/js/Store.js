@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import productos from './modules/Productos';
+import productos from './modules/productos';
 
 Vue.use(Vuex);
 
@@ -18,7 +18,7 @@ export const store = new Vuex.Store({
         totalCompra: (state) => state.carro.reduce((total, producto) => total + producto.precio, 0),
     },
     mutations : {
-        //anadirProductos: (state, producto) => state.productos.unshift(producto),
+        anadirProductos: (state, producto) => state.productos.unshift(producto),
         comprarProductos: (state, indice) => state.carro.unshift(state.productos[indice]),
         eliminarProductos: (state, indice) => state.carro.splice(indice, 1),
     },

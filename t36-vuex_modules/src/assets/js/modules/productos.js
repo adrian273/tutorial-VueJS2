@@ -4,11 +4,11 @@ const productos = [
     {nombre : 'Libro Vuejs2', precio : 18000}
 ];
 
-const mutations = {
+/*const mutations = {
     anadirProductos: (state, producto) => state.productos.unshift(producto),
-};
+};*/
 
 export default {
     state: productos,
-    mutations
+    //mutations,
 }
