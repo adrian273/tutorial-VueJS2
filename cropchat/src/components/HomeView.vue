@@ -16,6 +16,15 @@
     <router-link class="add-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" to="/post">
       <i class="material-icons">add</i>
     </router-link>
+
+<div v-for="picture in this.$root.cat" class="image-card" @click="displayDetails(picture['.key'])">
+  <div class="image-card__picture">
+    <img :src="picture.url" />
+  </div>
+  <div class="image-card__comment mdl-card__actions">
+    <span>{{ picture.comment }}</span>
+  </div>
+</div>
   </div>
 </template>
 

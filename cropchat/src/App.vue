@@ -9,7 +9,7 @@
       <span class="mdl-layout-title">cat</span>
       <nav class="mdl-navigation">
         <router-link class="mdl-navigation__link" to="/" @click.native="hideMenu">Home</router-link>
-        <router-link class="mdl-navigation__link" to="/post" @click.native="hideMenu">Post a picture</router-link>
+        <router-link class="mdl-navigation__link" to="/post" @click.native="hideMenu">Nuevo post</router-link>
       </nav>
     </div>
     <main class="mdl-layout__content">
