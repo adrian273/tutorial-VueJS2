@@ -1,3 +1,3 @@
-aprendiendo VUEJS con firebase, tutorial de Wmedia.
+Tutorial de VueJS2 con ES6 + firebase.
 ***
 ![Vuejs](https://vuejs.org/images/logo.png)
