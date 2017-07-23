@@ -1,6 +1,6 @@
 # t59-vue_router_lazy_load
 
->  obtener datos de forma asíncrona antes de cargar la rutade cargar la ruta.
+>  cargar componentes únicamente cuando vayan a ser utilizados, reduciendo el tamaño de nuestro bundle.
 
 ## Build Setup
 
