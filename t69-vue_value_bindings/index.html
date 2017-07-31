@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>t69 vue value bindings</title>
+  </head>
+  <body>
+    <div class="" id="app">
+      <!-- checbox -->
+      <input type="checkbox" name="" value="" v-model="checkbox" :true-value="a" :false-value="b">
+
+      <!-- radio -->
+      <!-- <input type="radio" name="" value="" v-model="radio" :value="a"> -->
+      <input type="radio" name="" value="" v-model="radio" :value="[1, 2, 3, 4, 5]">
+      <!-- select -->
+      <select v-model="select">
+        <option :value="b">Adrian</option>
+      </select>
+      <hr>
+      <pre>{{$data}}</pre>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          checkbox: null,
+          a: {
+            estado: 'checked'
+          },
+          b: {
+            estado: 'unchecked'
+          },
+          radio: null,
+          select: null
+        }
+      })
+    </script>
+  </body>
+</html>
