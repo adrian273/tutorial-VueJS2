@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>t71 firebase add content</title>
+  </head>
+  <body>
+    <form id="formulario">
+      <textarea name="mensaje" id="mensaje" rows="8" cols="80"></textarea><br>
+      <input type="submit" name="" value="enviar">
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCOot5pWXryNTenmI8drUy73bBEVy8m7_o",
+        authDomain: "tutorial-vue.firebaseapp.com",
+        databaseURL: "https://tutorial-vue.firebaseio.com",
+        projectId: "tutorial-vue",
+        storageBucket: "tutorial-vue.appspot.com",
+        messagingSenderId: "356741626921"
+      };
+      firebase.initializeApp(config);
+
+      // guardar referencia
+      var db = firebase.database();
+
+      /*
+      // guardar info de perfil
+      db.ref('/perfiles/adrianverdugo').set({
+        username: 'adrianverdugo',
+        password: '273',
+        ciudad: 'maule',
+        pais: 'chile'
+      }).then(() => console.log('Añadido')) */
+
+      // guardar nuevos datos anidados en forma de lista
+      document.getElementById('formulario').onsubmit = function(event) {
+        event.preventDefault();
+        let mensaje = document.getElementById('mensaje');
+        db.ref('chats').push({
+          username: 'adrianverdugo',
+          mensaje: mensaje.value
+        }).then(() => {
+          console.info('mensaje enviado');
+          mensaje.value = ''
+        })
+      }
+    </script>
+  </body>
+</html>
