@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Read content</title>
+  </head>
+  <body>
+    <div id="app">
+      <form @submit.prevent="sendMsg">
+        <textarea v-model="msg" rows="8" cols="80"></textarea>
+        <br>
+        <input type="submit" name="" value="Enviar">
+      </form>
+      <hr>
+      <h1>Mensajes</h1>
+      <ul>
+
+        <li v-for="mensaje in mensajes">
+            {{mensaje.mensaje}}
+          <small>({{mensaje.username}})</small>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCOot5pWXryNTenmI8drUy73bBEVy8m7_o",
+        authDomain: "tutorial-vue.firebaseapp.com",
+        databaseURL: "https://tutorial-vue.firebaseio.com",
+        projectId: "tutorial-vue",
+        storageBucket: "tutorial-vue.appspot.com",
+        messagingSenderId: "356741626921"
+      };
+      firebase.initializeApp(config);
+
+      // guardar referencia
+      var db = firebase.database();
+
+      new Vue({
+        el: '#app',
+        created() {
+          db.ref('/chats')
+            .on('value', snapshot => this.loadMsg(snapshot.val()))
+        },
+        data: {
+          msg: null,
+          username: 'adrianverdugo',
+          mensajes: []
+        },
+        methods: {
+          loadMsg(mensajes) {
+            this.mensajes = []
+            for(let key in mensajes){
+                this.mensajes.push({
+                  mensaje: mensajes[key].mensaje,
+                  username: mensajes[key].username
+                })
+            }
+          },
+          sendMsg() {
+            db.ref('/chats')
+              .push({
+                mensaje: this.msg,
+                username: this.username
+              }).then((data) => {
+                  this.msg = ''
+                  console.log(data.key)
+              });
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
